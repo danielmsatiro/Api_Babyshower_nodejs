@@ -1101,7 +1101,7 @@
     "/chat": {
       "get": {
         "summary": "Retorna uma lista de chats abertos",
-        "description": "Retorna a lista dos chats abertos em que o usuário logado faz parte.",
+        "description": "Retorna a lista dos chats abertos em que o usuário logado faz parte. Embora as mensages possam ser obtidas por essa rota, elas não atualizam o registro de confirmação de leitura.",
         "tags": ["Chat"],
         "responses": {
           "200": {
@@ -1156,7 +1156,7 @@
     },
     "/chat/{id}": {
       "post": {
-        "summary": "Envia um mensagem para outro usuário",
+        "summary": "Envia uma mensagem para outro usuário",
         "description": "Essa rota identifica o usuário da api principal (em python) pelo token e permite enviar uma mensagem para outro usuário desta mesma api externa.",
         "tags": ["Chat"],
         "security": [{ "bearerAuth": [] }],
@@ -1223,8 +1223,8 @@
         }
       },
       "get": {
-        "summary": "Retorna as mensagens de um chat específico",
-        "description": "Busca as mensagens através do id do chat, mas para isso o usuário logado precisa fazer parte da conversa.",
+        "summary": "Retorna as mensagens de um chat específico com confirmação de leitura",
+        "description": "Busca as mensagens através do id do chat, mas para isso o usuário logado precisa fazer parte da conversa.  É importante saber que esta roda registra a confirmação de leitura quando o recebedor faz a requisição.",
         "tags": ["Chat"],
         "security": [{ "bearerAuth": [] }],
         "parameters": [

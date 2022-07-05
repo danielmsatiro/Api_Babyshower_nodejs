@@ -10,11 +10,7 @@ import swaggerDocument from "./swagger.json";
 
 const app = express();
 
-app.use(
-  cors({
-    origin: "*", //incluir vercel do front aqui e api flask
-  })
-);
+app.use(cors());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
